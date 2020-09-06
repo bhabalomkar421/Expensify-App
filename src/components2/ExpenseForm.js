@@ -73,7 +73,7 @@ export default class ExpenseForm extends React.Component {
                     />
                     <input 
                         type = "text"
-                        placeholder="Amount"
+                        placeholder="Amount in cents"
                         value = { this.state.amount }
                         onChange = { this.onAmountChange }          
                     />
