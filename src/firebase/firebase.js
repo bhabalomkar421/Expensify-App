@@ -18,12 +18,60 @@ firebase.analytics();
 
 const database = firebase.database();
 
-database.ref()
-    .once('value')
-    .then((snapshot) => {
-        const val = snapshot.val();
-        console.log(val);
-    }).catch((err) => console.log(err));
+export  { firebase , database as default };
+
+// database.ref('expenses')
+//     .once('value')
+//     .then((snapshot) => {
+//         let expenses = [];
+//         snapshot.forEach((childSnapshot) => {
+//             expenses.push({
+//                 id : childSnapshot.key,
+//                 ...childSnapshot.val()
+//             })
+//         });
+//         console.log(expenses);
+//     }).catch((err) => console.log(err));
+
+// database.ref('expenses').push({
+//     description : 'shopping',
+//     note : 'ordered frm amazon',
+//     amount : 1243,
+//     createdAt : 2345342363
+// });
+// database.ref()
+//     .once('value')
+//     .then((snapshot) => {
+//         const val = snapshot.val();
+//         console.log(val);
+//     }).catch((err) => console.log(err));
+
+// database.ref().on('value', (snapshot) => {
+//     const val = snapshot.val();
+//     console.log(`${val.name} is a ${val.job.position} at ${val.job.company}`)
+// });
+
+// setTimeout(() => {
+//     database.ref().update({'job/company' : 'Microsoft'});
+// }, 2500);
+
+// const onValueChange = database.ref().on('value', (snapshot) => {
+//     console.log(snapshot.val())
+// }, (e) => {
+//     console.log('Error while fetching data', e);
+// });
+
+// setTimeout(() => {
+//     database.ref('age').set(27);
+// }, 3500);
+
+// setTimeout(() => {
+//     database.ref().off(onValueChange);
+// }, 7000);
+
+// setTimeout(() => {
+//     database.ref('age').set(30);
+// }, 10500);
 
 // database.ref().set({
 //     name : 'Omkar Bhabal',
