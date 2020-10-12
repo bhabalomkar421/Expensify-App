@@ -21,14 +21,12 @@ module.exports = (env) => {
         loader: 'babel-loader',
         test: /\.js$/,
         exclude: /node_modules/
-      }, {
+      },{
         test: /\.s?css$/,
         use: [
           {
             loader : MiniCssExtractPlugin.loader,
-
           },
-          
           {
             loader : 'css-loader',
             options : {
@@ -41,6 +39,17 @@ module.exports = (env) => {
               sourceMap : true
             }
           }],
+      },{
+        test: /\.(png|jpg|gif)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192,
+              esModule : false
+            }
+          }
+        ]
       }]
     },
     plugins: [
